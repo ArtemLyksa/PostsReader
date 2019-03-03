@@ -42,6 +42,7 @@
 		FEC60A58222C23F30029BC80 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A57222C23F30029BC80 /* DetailsViewController.swift */; };
 		FEC60A6A222C27000029BC80 /* Describable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A69222C27000029BC80 /* Describable.swift */; };
 		FEC60A6C222C27C10029BC80 /* NSAttributedString+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A6B222C27C10029BC80 /* NSAttributedString+Extensions.swift */; };
+		FEC60A6E222C30C40029BC80 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A6D222C30C40029BC80 /* DetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		FEC60A57222C23F30029BC80 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FEC60A69222C27000029BC80 /* Describable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Describable.swift; sourceTree = "<group>"; };
 		FEC60A6B222C27C10029BC80 /* NSAttributedString+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Extensions.swift"; sourceTree = "<group>"; };
+		FEC60A6D222C30C40029BC80 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -323,6 +325,7 @@
 		FEC60A56222C23DF0029BC80 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				FEC60A6D222C30C40029BC80 /* DetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */,
 				FEC60A3B222BFB320029BC80 /* BaseViewController+extensions.swift in Sources */,
 				FEC60A53222C1CF00029BC80 /* Realm+extensions.swift in Sources */,
+				FEC60A6E222C30C40029BC80 /* DetailsViewModel.swift in Sources */,
 				FEA41B7C22295D3D00635BD5 /* NetworkRouter.swift in Sources */,
 				FEC60A24222BC2400029BC80 /* GenericTableView.swift in Sources */,
 				FEC60A1E222BC0B90029BC80 /* PostsViewController.swift in Sources */,

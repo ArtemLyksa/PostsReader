@@ -14,8 +14,8 @@ enum NetworkRouter: URLRequestConvertible {
     private static let baseUrl = URL(string: "http://jsonplaceholder.typicode.com")!
     
     case getPosts
-    case getUser(userId: String)
-    case getComments(postId: String)
+    case getUser(userId: Int)
+    case getComments(postId: Int)
     
     func asURLRequest() throws -> URLRequest {
         
