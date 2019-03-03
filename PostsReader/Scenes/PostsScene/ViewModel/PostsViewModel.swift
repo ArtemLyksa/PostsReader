@@ -13,6 +13,13 @@ class PostsViewModel: BaseViewModel {
     
     var data = GenericTableViewData(title: "Posts".localized)
     
+    override init() {
+        super.init()
+        data.setRightButton(GenericBarButton(title: "Reload".localized) { [weak self] in
+            self?.getPosts()
+        })
+    }
+    
     func getPosts() {
         isLoadingSubject.onNext(true)
         

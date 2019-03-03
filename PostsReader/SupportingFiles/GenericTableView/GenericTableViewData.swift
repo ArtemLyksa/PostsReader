@@ -13,11 +13,17 @@ import RxSwift
 class GenericTableViewData {
     
     let title: String
+    
     var sections: Observable<[GenericSectionModel]> {
         return sectionsRelay.asObservable()
     }
     
+    var rightBarButton: Observable<GenericBarButton?> {
+        return rightBarButtonRelay.asObservable()
+    }
+    
     private let sectionsRelay: BehaviorRelay<[GenericSectionModel]>
+    private let rightBarButtonRelay: BehaviorRelay<GenericBarButton?> = BehaviorRelay(value: nil)
     
     init(title: String) {
         self.title = title
@@ -27,4 +33,13 @@ class GenericTableViewData {
     func set(sections: [GenericSectionModel]) {
         sectionsRelay.accept(sections)
     }
+    
+    func setRightButton(_ genericBarButton: GenericBarButton) {
+        rightBarButtonRelay.accept(genericBarButton)
+    }
+}
+
+struct GenericBarButton {
+    let title: String
+    let action: () -> Void
 }

@@ -25,5 +25,5 @@ class BaseViewModel {
         }).asObservable()
     }
     var errorSubject = BehaviorSubject<Error?>(value: nil)
-
+    
 }

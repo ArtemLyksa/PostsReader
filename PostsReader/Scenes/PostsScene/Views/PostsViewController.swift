@@ -30,5 +30,9 @@ class PostsViewController: BaseViewController {
         
         // Setup base observables
         setupBaseObservables(baseViewModel: viewModel)
+        
+        // Setup base data observables
+        setupBaseDataObservables(data: viewModel.data)
     }
+    
 }

@@ -33,9 +33,10 @@
 		FEC60A34222BD2AA0029BC80 /* UITableView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */; };
 		FEC60A36222BD3E00029BC80 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC60A35222BD3E00029BC80 /* PostTableViewCell.xib */; };
 		FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */; };
-		FEC60A3B222BFB320029BC80 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */; };
+		FEC60A3B222BFB320029BC80 /* BaseViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A3A222BFB320029BC80 /* BaseViewController+extensions.swift */; };
 		FEC60A40222BFE9D0029BC80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEC60A42222BFE9D0029BC80 /* Localizable.strings */; };
 		FEC60A45222BFEEC0029BC80 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A44222BFEEC0029BC80 /* String+extensions.swift */; };
+		FEC60A4E222C11730029BC80 /* BaseViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A4D222C11730029BC80 /* BaseViewController+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +70,12 @@
 		FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extensions.swift"; sourceTree = "<group>"; };
 		FEC60A35222BD3E00029BC80 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewData.swift; sourceTree = "<group>"; };
-		FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
+		FEC60A3A222BFB320029BC80 /* BaseViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+extensions.swift"; sourceTree = "<group>"; };
 		FEC60A3C222BFE4D0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
 		FEC60A3D222BFE4E0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FEC60A41222BFE9D0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FEC60A44222BFEEC0029BC80 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
+		FEC60A4D222C11730029BC80 /* BaseViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,8 +281,9 @@
 		FEC60A32222BD2960029BC80 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FEC60A4D222C11730029BC80 /* BaseViewController+Rx.swift */,
+				FEC60A3A222BFB320029BC80 /* BaseViewController+extensions.swift */,
 				FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */,
-				FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */,
 				FEC60A44222BFEEC0029BC80 /* String+extensions.swift */,
 			);
 			path = Extensions;
@@ -442,6 +445,7 @@
 				FEA41B7A22295D1E00635BD5 /* CommentModel.swift in Sources */,
 				FEA41B7822295D1500635BD5 /* UserModel.swift in Sources */,
 				FEC60A45222BFEEC0029BC80 /* String+extensions.swift in Sources */,
+				FEC60A4E222C11730029BC80 /* BaseViewController+Rx.swift in Sources */,
 				FEC60A28222BC2F30029BC80 /* GenericSectionItem.swift in Sources */,
 				FEC60A31222BD1230029BC80 /* PostTableViewCell.swift in Sources */,
 				FEC60A2A222BC86F0029BC80 /* GenericTableViewCellModelProtocol.swift in Sources */,
@@ -450,7 +454,7 @@
 				FEC60A26222BC2BB0029BC80 /* GenericSectionModel.swift in Sources */,
 				FEC60A1B222BBEE80029BC80 /* BaseViewController.swift in Sources */,
 				FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */,
-				FEC60A3B222BFB320029BC80 /* UIViewController+extensions.swift in Sources */,
+				FEC60A3B222BFB320029BC80 /* BaseViewController+extensions.swift in Sources */,
 				FEA41B7C22295D3D00635BD5 /* NetworkRouter.swift in Sources */,
 				FEC60A24222BC2400029BC80 /* GenericTableView.swift in Sources */,
 				FEC60A1E222BC0B90029BC80 /* PostsViewController.swift in Sources */,
