@@ -9,8 +9,14 @@
 import Foundation
 
 protocol DataBaseProtocol {
-    func save()
-    func delete()
+    
+    func savePosts(_ posts: [PostModel])
+    func getPosts() -> [PostModel]
+    func saveUser()
+    func getUser()
+    func saveComments()
+    func getComments()
+    
 }
 
 struct DataBaseService {
@@ -21,4 +27,11 @@ struct DataBaseService {
         self.dataBase = dataBase
     }
     
+    func savePosts(_ posts: [PostModel]) {
+        dataBase.savePosts(posts)
+    }
+    
+    func getPosts() -> [PostModel] {
+        return dataBase.getPosts()
+    }
 }

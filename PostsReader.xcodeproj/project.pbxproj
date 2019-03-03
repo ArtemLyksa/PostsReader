@@ -37,6 +37,8 @@
 		FEC60A40222BFE9D0029BC80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEC60A42222BFE9D0029BC80 /* Localizable.strings */; };
 		FEC60A45222BFEEC0029BC80 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A44222BFEEC0029BC80 /* String+extensions.swift */; };
 		FEC60A4E222C11730029BC80 /* BaseViewController+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A4D222C11730029BC80 /* BaseViewController+Rx.swift */; };
+		FEC60A51222C15660029BC80 /* PostRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A50222C15660029BC80 /* PostRealm.swift */; };
+		FEC60A53222C1CF00029BC80 /* Realm+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A52222C1CF00029BC80 /* Realm+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		FEC60A41222BFE9D0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FEC60A44222BFEEC0029BC80 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 		FEC60A4D222C11730029BC80 /* BaseViewController+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BaseViewController+Rx.swift"; sourceTree = "<group>"; };
+		FEC60A50222C15660029BC80 /* PostRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRealm.swift; sourceTree = "<group>"; };
+		FEC60A52222C1CF00029BC80 /* Realm+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Realm+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +164,7 @@
 		FEA41B7022295C3C00635BD5 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				FEC60A4F222C15520029BC80 /* RealmModels */,
 				FEA41B6B2229403C00635BD5 /* DataBaseService.swift */,
 				FEA41B6D2229404F00635BD5 /* RealmService.swift */,
 			);
@@ -285,6 +290,7 @@
 				FEC60A3A222BFB320029BC80 /* BaseViewController+extensions.swift */,
 				FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */,
 				FEC60A44222BFEEC0029BC80 /* String+extensions.swift */,
+				FEC60A52222C1CF00029BC80 /* Realm+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +302,14 @@
 				FE94F99722285FAF00D33707 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		FEC60A4F222C15520029BC80 /* RealmModels */ = {
+			isa = PBXGroup;
+			children = (
+				FEC60A50222C15660029BC80 /* PostRealm.swift */,
+			);
+			path = RealmModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -455,6 +469,7 @@
 				FEC60A1B222BBEE80029BC80 /* BaseViewController.swift in Sources */,
 				FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */,
 				FEC60A3B222BFB320029BC80 /* BaseViewController+extensions.swift in Sources */,
+				FEC60A53222C1CF00029BC80 /* Realm+extensions.swift in Sources */,
 				FEA41B7C22295D3D00635BD5 /* NetworkRouter.swift in Sources */,
 				FEC60A24222BC2400029BC80 /* GenericTableView.swift in Sources */,
 				FEC60A1E222BC0B90029BC80 /* PostsViewController.swift in Sources */,
@@ -463,6 +478,7 @@
 				FE94F98F22285FAC00D33707 /* AppDelegate.swift in Sources */,
 				FEA41B6C2229403C00635BD5 /* DataBaseService.swift in Sources */,
 				FEA41B6E2229404F00635BD5 /* RealmService.swift in Sources */,
+				FEC60A51222C15660029BC80 /* PostRealm.swift in Sources */,
 				FEC60A2F222BD10D0029BC80 /* PostCellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

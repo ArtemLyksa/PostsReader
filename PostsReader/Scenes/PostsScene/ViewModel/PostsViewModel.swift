@@ -13,8 +13,11 @@ class PostsViewModel: BaseViewModel {
     
     var data = GenericTableViewData(title: "Posts".localized)
     
+    private var dataBaseService = DataBaseService(dataBase: RealmService())
+    
     override init() {
         super.init()
+        fetchLocalData()
         data.setRightButton(GenericBarButton(title: "Reload".localized) { [weak self] in
             self?.getPosts()
         })
@@ -25,15 +28,24 @@ class PostsViewModel: BaseViewModel {
         
         NetworkService.shared.getPosts()
             .subscribe(onNext: { [weak self] posts in
-                
-                let sectionItems = posts.map({ post -> GenericSectionItem in
-                    return PostCellModel(identity: post.title, postModel: post).sectionItem
-                })
-                self?.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
+                self?.dataBaseService.savePosts(posts)
+                self?.prepareForDisplay(posts)
                 self?.isLoadingSubject.onNext(false)
-            },onError: { [weak self] error in
-                self?.errorSubject.onNext(error)
+                },onError: { [weak self] error in
+                    self?.errorSubject.onNext(error)
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func fetchLocalData() {
+        // Fetch saved posts from local DB and show them
+        prepareForDisplay(dataBaseService.getPosts())
+    }
+    
+    private func prepareForDisplay(_ posts: [PostModel]) {
+        let sectionItems = posts.map({ post -> GenericSectionItem in
+            return PostCellModel(identity: post.title, postModel: post).sectionItem
+        })
+        self.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
     }
 }
