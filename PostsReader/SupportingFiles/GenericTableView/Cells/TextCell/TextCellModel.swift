@@ -1,5 +1,5 @@
 //
-//  PostCellModel.swift
+//  TextCellModel.swift
 //  PostsReader
 //
 //  Created by Artem Lyksa on 3/3/19.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-class PostCellModel: GTVManagedCellModelProtocol {
+class TextCellModel: GTVManagedCellModelProtocol {
     
     var identity: String
-    private var postModel: PostModel
+    private var model: Describable
     
-    init(identity: String, postModel: PostModel) {
+    init(identity: String, model: Describable) {
         self.identity = identity
-        self.postModel = postModel
+        self.model = model
     }
     
     func configureCell(in tableView: UITableView, for index: IndexPath) -> UITableViewCell {
-        let cell = tableView.getCell(ofType: PostTableViewCell.self)
-        cell.configure(with: postModel)
+        let cell = tableView.getCell(ofType: TextTableViewCell.self)
+        cell.configure(with: model.attributedDescription)
         
         return cell
     }

@@ -30,7 +30,7 @@ struct RealmService: DataBaseProtocol {
     func savePosts(_ posts: [PostModel]) {
         let realm = Realm.safeInit()
         realm?.safeWrite {
-            realm?.add(posts.encodeItems())
+            realm?.add(posts.encodeItems(), update: true)
         }
     }
     

@@ -34,7 +34,7 @@ class GenericTableView: UITableView {
         tableFooterView = UIView()
         
         rowHeight = UITableView.automaticDimension
-        estimatedRowHeight = 40.0
+        estimatedRowHeight = 100.0
         
         rx.setDelegate(self)
             .disposed(by: disposeBag)

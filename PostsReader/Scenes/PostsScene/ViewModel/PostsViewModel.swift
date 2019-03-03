@@ -44,7 +44,7 @@ class PostsViewModel: BaseViewModel {
     
     private func prepareForDisplay(_ posts: [PostModel]) {
         let sectionItems = posts.map({ post -> GenericSectionItem in
-            return PostCellModel(identity: post.title, postModel: post).sectionItem
+            return TextCellModel(identity: post.title, model: post).sectionItem
         })
         self.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
     }
