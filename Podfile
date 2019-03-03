@@ -20,5 +20,9 @@ target 'PostsReader' do
 
 # Utils
   pod 'SwiftLint'
+  pod 'Alamofire'
+  
+# Spinner overlay
+  pod 'JGProgressHUD'
 
 end
