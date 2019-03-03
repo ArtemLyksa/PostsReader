@@ -18,18 +18,18 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPJ-jt-nex">
-                        <rect key="frame" x="4" y="4" width="367" height="35.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPJ-jt-nex">
+                        <rect key="frame" x="8" y="8" width="359" height="27.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="QPJ-jt-nex" firstAttribute="top" secondItem="sBa-62-cVx" secondAttribute="top" constant="4" id="5dm-Xj-kh3"/>
-                    <constraint firstItem="QPJ-jt-nex" firstAttribute="leading" secondItem="sBa-62-cVx" secondAttribute="leading" constant="4" id="AZm-p8-CLY"/>
-                    <constraint firstAttribute="trailing" secondItem="QPJ-jt-nex" secondAttribute="trailing" constant="4" id="awd-WJ-ZJd"/>
-                    <constraint firstAttribute="bottom" secondItem="QPJ-jt-nex" secondAttribute="bottom" constant="4" id="g4q-Bg-D1V"/>
+                    <constraint firstItem="QPJ-jt-nex" firstAttribute="top" secondItem="sBa-62-cVx" secondAttribute="top" constant="8" id="5dm-Xj-kh3"/>
+                    <constraint firstItem="QPJ-jt-nex" firstAttribute="leading" secondItem="sBa-62-cVx" secondAttribute="leading" constant="8" id="AZm-p8-CLY"/>
+                    <constraint firstAttribute="trailing" secondItem="QPJ-jt-nex" secondAttribute="trailing" constant="8" id="awd-WJ-ZJd"/>
+                    <constraint firstAttribute="bottom" secondItem="QPJ-jt-nex" secondAttribute="bottom" constant="8" id="g4q-Bg-D1V"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

@@ -14,17 +14,20 @@ class PostsViewModel: BaseViewModel {
     var sections = Variable([GenericSectionModel]())
     
     func getPosts() {
-        NetworkService.shared.getPosts({ [weak self] result in
-            switch result {
-            case .success(let posts):
+        NetworkService.shared.getPosts()
+            .subscribe(onNext: { [weak self] posts in
+                
                 let sectionItems = posts.map({ post -> GenericSectionItem in
                     let cellModel = PostCellModel(identity: post.title, postModel: post)
                     return GenericSectionItem(cellModel: cellModel)
                 })
+                
                 self?.sections.value = [GenericSectionModel(items: sectionItems, identity: "test")]
-            case .failure(let error):
-                print(error)
-            }
-        })
+                
+            },onError: { error in
+                //TODO: Handle error
+                print("Got an error")
+            })
+            .disposed(by: disposeBag)
     }
 }

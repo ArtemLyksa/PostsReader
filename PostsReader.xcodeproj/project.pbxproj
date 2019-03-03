@@ -117,10 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				FE94F98E22285FAC00D33707 /* AppDelegate.swift */,
-				FEC60A32222BD2960029BC80 /* Extensions */,
-				FEC60A22222BC21D0029BC80 /* GenericTableView */,
-				FEA41B6A2229402800635BD5 /* Services */,
 				FEC60A20222BC0DD0029BC80 /* Scenes */,
+				FEA41B6A2229402800635BD5 /* Services */,
 				FEC60A21222BC0EF0029BC80 /* SupportingFiles */,
 			);
 			path = PostsReader;
@@ -236,8 +234,9 @@
 		FEC60A21222BC0EF0029BC80 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				FE94F99222285FAC00D33707 /* Main.storyboard */,
-				FE94F99722285FAF00D33707 /* LaunchScreen.storyboard */,
+				FEC60A22222BC21D0029BC80 /* GenericTableView */,
+				FEC60A32222BD2960029BC80 /* Extensions */,
+				FEC60A37222BD7990029BC80 /* Resources */,
 				FE94F99522285FAF00D33707 /* Assets.xcassets */,
 				FE94F99A22285FAF00D33707 /* Info.plist */,
 			);
@@ -271,6 +270,15 @@
 				FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FEC60A37222BD7990029BC80 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FE94F99222285FAC00D33707 /* Main.storyboard */,
+				FE94F99722285FAF00D33707 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,6 +387,7 @@
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAlamofire/RxAlamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -394,6 +403,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAlamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",

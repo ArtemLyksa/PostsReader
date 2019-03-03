@@ -18,9 +18,11 @@ target 'PostsReader' do
   pod 'RealmSwift'
   pod 'RxRealm'
 
+#Network
+  pod 'RxAlamofire'
+  
 # Utils
   pod 'SwiftLint'
-  pod 'Alamofire'
   
 # Spinner overlay
   pod 'JGProgressHUD'

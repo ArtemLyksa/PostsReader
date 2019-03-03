@@ -8,63 +8,42 @@
 
 import Foundation
 import Alamofire
+import RxAlamofire
+import RxSwift
 
 class NetworkService {
     
     private init() { }
     static let shared = NetworkService()
     
-    func getPosts(_ completion: @escaping GetPostsCompletion) {
+    func getPosts() -> Observable<[PostModel]> {
         let request = NetworkRouter.getPosts
-        performRequest(request, completion: { [weak self] error, data in
-            guard let self = self else {
-                completion(NetworkServiceResult.failure(error: GenericError.cannotParseData))
-                return
-            }
-            let result = self.proceedResult(type: [PostModel].self, error: error, data: data)
-            completion(result)
+        return performRequest(request, type: [PostModel].self)
+    }
+    
+    private func performRequest<T: Decodable>(_ urlRequest: URLRequestConvertible,
+                                              type: T.Type) -> Observable<T> {
+        
+        return RxAlamofire.requestData(urlRequest).map({ [unowned self] _, data in
+            return try self.proceedResult(type: type, data: data)
         })
     }
     
-    private func performRequest(_ urlRequest: URLRequestConvertible,
-                                completion: @escaping (GenericError?, Data?) -> Void) {
-        Alamofire.request(urlRequest).responseData(completionHandler: { response in
-            if let error = response.error {
-                completion(GenericError.generic(error), nil)
-                return
-            }
-            guard let data = response.data else {
-                completion(GenericError.cannotParseData, nil)
-                return
-            }
-            
-            completion(nil, data)
-        })
-    }
-    
-    func proceedResult<T: Decodable>(type: T.Type, error: GenericError?, data: Data?) -> NetworkServiceResult<T> {
-        if let error = error {
-            return NetworkServiceResult.failure(error: error)
+    func proceedResult<T: Decodable>(type: T.Type, data: Data?) throws -> T {
+
+        guard let data = data else {
+            throw GenericError.cannotParseData
         }
-        guard let data = data else { return NetworkServiceResult.failure(error: GenericError.cannotParseData) }
         
         do {
             let response = try JSONDecoder().decode(type, from: data)
-            return NetworkServiceResult.success(result: response)
+            return response
         } catch (let error ) {
             let nserror = error as NSError
             print("Error occurred when trying to parse \(type): \n ***\(nserror.userInfo)***")
-            return NetworkServiceResult.failure(error: GenericError.cannotParseData)
+            throw GenericError.cannotParseData
         }
     }
     
 }
 
-extension NetworkService {
-    typealias GetPostsCompletion = (_ result: NetworkServiceResult<[PostModel]>) -> Void
-    
-    enum NetworkServiceResult<U> {
-        case success(result: U)
-        case failure(error: Error)
-    }
-}

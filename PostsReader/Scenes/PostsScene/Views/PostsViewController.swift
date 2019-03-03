@@ -18,6 +18,11 @@ class PostsViewController: BaseViewController {
         setupObservables()
     }
     
+    private func setupViewsOnLoad() {
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 40.0
+    }
+    
     private func setupObservables() {
         tableView.setDataSourceObservable(sections: viewModel.sections.asObservable())
         viewModel.getPosts()

@@ -7,6 +7,11 @@ PODS:
   - Realm/Headers (3.13.1)
   - RealmSwift (3.13.1):
     - Realm (= 3.13.1)
+  - RxAlamofire (4.3.0):
+    - RxAlamofire/Core (= 4.3.0)
+  - RxAlamofire/Core (4.3.0):
+    - Alamofire (~> 4.5)
+    - RxSwift (~> 4)
   - RxAtomic (4.4.1)
   - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
@@ -22,9 +27,9 @@ PODS:
   - SwiftLint (0.31.0)
 
 DEPENDENCIES:
-  - Alamofire
   - JGProgressHUD
   - RealmSwift
+  - RxAlamofire
   - RxCocoa
   - RxDataSources
   - RxRealm
@@ -38,6 +43,7 @@ SPEC REPOS:
     - JGProgressHUD
     - Realm
     - RealmSwift
+    - RxAlamofire
     - RxAtomic
     - RxCocoa
     - RxDataSources
@@ -51,6 +57,7 @@ SPEC CHECKSUMS:
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
   RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  RxAlamofire: 09624d0f2d48ed8b686e4eb4cf68e28cbd2df556
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -58,6 +65,6 @@ SPEC CHECKSUMS:
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: b3a8834efa92ec6fff7a7de90bf9ad0147270e4b
+PODFILE CHECKSUM: cb91c1622bab5de8c955c4eb3c03634882bd8088
 
 COCOAPODS: 1.6.0
