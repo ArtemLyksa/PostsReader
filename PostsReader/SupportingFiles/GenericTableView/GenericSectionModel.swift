@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import RxSwift
-import RxCocoa
 import RxDataSources
 
 struct GenericSectionModel: SectionModelType, AnimatableSectionModelType {

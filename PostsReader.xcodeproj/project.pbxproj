@@ -32,6 +32,8 @@
 		FEC60A31222BD1230029BC80 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A30222BD1230029BC80 /* PostTableViewCell.swift */; };
 		FEC60A34222BD2AA0029BC80 /* UITableView+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */; };
 		FEC60A36222BD3E00029BC80 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC60A35222BD3E00029BC80 /* PostTableViewCell.xib */; };
+		FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */; };
+		FEC60A3B222BFB320029BC80 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		FEC60A30222BD1230029BC80 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+extensions.swift"; sourceTree = "<group>"; };
 		FEC60A35222BD3E00029BC80 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewData.swift; sourceTree = "<group>"; };
+		FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +254,7 @@
 				FEC60A25222BC2BB0029BC80 /* GenericSectionModel.swift */,
 				FEC60A27222BC2F30029BC80 /* GenericSectionItem.swift */,
 				FEC60A29222BC86F0029BC80 /* GenericTableViewCellModelProtocol.swift */,
+				FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */,
 			);
 			path = GenericTableView;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */,
+				FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +439,8 @@
 				FEC60A2C222BCEA20029BC80 /* ErrorsService.swift in Sources */,
 				FEC60A26222BC2BB0029BC80 /* GenericSectionModel.swift in Sources */,
 				FEC60A1B222BBEE80029BC80 /* BaseViewController.swift in Sources */,
+				FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */,
+				FEC60A3B222BFB320029BC80 /* UIViewController+extensions.swift in Sources */,
 				FEA41B7C22295D3D00635BD5 /* NetworkRouter.swift in Sources */,
 				FEC60A24222BC2400029BC80 /* GenericTableView.swift in Sources */,
 				FEC60A1E222BC0B90029BC80 /* PostsViewController.swift in Sources */,

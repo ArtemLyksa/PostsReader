@@ -15,16 +15,20 @@ class PostsViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupViewsOnLoad()
         setupObservables()
     }
     
-    private func setupViewsOnLoad() {
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 40.0
+    private func setupViewsOnLoad() {    
+        navigationItem.title = viewModel.data.title
     }
     
     private func setupObservables() {
-        tableView.setDataSourceObservable(sections: viewModel.sections.asObservable())
+        // Setup datasource
+        tableView.configure(with: viewModel.data)
         viewModel.getPosts()
+        
+        // Setup base observables
+        setupBaseObservables(baseViewModel: viewModel)
     }
 }

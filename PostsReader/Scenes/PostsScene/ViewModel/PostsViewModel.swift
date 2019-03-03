@@ -11,22 +11,21 @@ import RxSwift
 
 class PostsViewModel: BaseViewModel {
     
-    var sections = Variable([GenericSectionModel]())
+    var data = GenericTableViewData(title: "Posts")
     
     func getPosts() {
+        isLoadingSubject.onNext(true)
+        
         NetworkService.shared.getPosts()
             .subscribe(onNext: { [weak self] posts in
                 
                 let sectionItems = posts.map({ post -> GenericSectionItem in
-                    let cellModel = PostCellModel(identity: post.title, postModel: post)
-                    return GenericSectionItem(cellModel: cellModel)
+                    return PostCellModel(identity: post.title, postModel: post).sectionItem
                 })
-                
-                self?.sections.value = [GenericSectionModel(items: sectionItems, identity: "test")]
-                
-            },onError: { error in
-                //TODO: Handle error
-                print("Got an error")
+                self?.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
+                self?.isLoadingSubject.onNext(false)
+            },onError: { [weak self] error in
+                self?.errorSubject.onNext(error)
             })
             .disposed(by: disposeBag)
     }

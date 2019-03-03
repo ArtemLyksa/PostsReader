@@ -14,7 +14,10 @@ import RxDataSources
 class GenericTableView: UITableView {
 
     var dataSourceObservable: RxTableViewSectionedAnimatedDataSource<GenericSectionModel>!
-    private let mainDisposeBag = DisposeBag()
+    
+    var heights = [IndexPath: CGFloat]()
+    
+    private let disposeBag = DisposeBag()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -26,19 +29,41 @@ class GenericTableView: UITableView {
         internalInit()
     }
     
-    public func setDataSourceObservable(sections: Observable<[GenericSectionModel]>) {
+    private func internalInit() {
         
-        sections
+        tableFooterView = UIView()
+        
+        rowHeight = UITableView.automaticDimension
+        estimatedRowHeight = 40.0
+        
+        rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
+        dataSourceObservable = RxTableViewSectionedAnimatedDataSource<GenericSectionModel>(configureCell: { [unowned self] (dataSource, table, indexPath, _) -> UITableViewCell in
+            return self.generic(tableView: table, withData: dataSource, cellForRowAt: indexPath)
+        })
+    }
+    
+    func configure(with data: GenericTableViewData) {
+        
+        data.sections
             .observeOn(MainScheduler.instance)
             .bind(to: self.rx.items(dataSource: dataSourceObservable))
-            .disposed(by: mainDisposeBag)
+            .disposed(by: disposeBag)
         
-//        rx.willDisplayCell
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] cell, indexPath in
-//                self?.heights[indexPath] = cell.frame.size.height
-//            })
-//            .disposed(by: mainDisposeBag)
+        rx.itemSelected
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] indexPath in
+                self?.deselectRow(at: indexPath, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        rx.willDisplayCell
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] cell, indexPath in
+                self?.heights[indexPath] = cell.frame.size.height
+            })
+            .disposed(by: disposeBag)
         
 //        data.sectionsToUpdate
 //            .observeOn(MainScheduler.instance)
@@ -52,7 +77,7 @@ class GenericTableView: UITableView {
 //                    self?.reloadSections(indexes, animationStyle: .fade)
 //                }
 //            })
-//            .disposed(by: mainDisposeBag)
+//            .disposed(by: disposeBag)
     }
     
     
@@ -61,13 +86,6 @@ class GenericTableView: UITableView {
 //    reloadAnimation: data.animation,
 //    deleteAnimation: data.animation)
     
-    private func internalInit() {
-        
-        dataSourceObservable = RxTableViewSectionedAnimatedDataSource<GenericSectionModel>(configureCell: { [unowned self] (dataSource, table, indexPath, _) -> UITableViewCell in
-            return self.generic(tableView: table, withData: dataSource, cellForRowAt: indexPath)
-        })
-    }
-    
     private func generic(tableView table: UITableView,
                          withData dataSource: RxDataSources.TableViewSectionedDataSource<GenericSectionModel>,
                          cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -75,4 +93,11 @@ class GenericTableView: UITableView {
         return dataSource[indexPath].cellModel.configureCell(in: table, for: indexPath)
     }
     
+}
+
+extension GenericTableView: UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return heights[indexPath] ?? UITableView.automaticDimension
+    }
 }
