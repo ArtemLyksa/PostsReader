@@ -34,6 +34,8 @@
 		FEC60A36222BD3E00029BC80 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FEC60A35222BD3E00029BC80 /* PostTableViewCell.xib */; };
 		FEC60A39222BED5E0029BC80 /* GenericTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */; };
 		FEC60A3B222BFB320029BC80 /* UIViewController+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */; };
+		FEC60A40222BFE9D0029BC80 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FEC60A42222BFE9D0029BC80 /* Localizable.strings */; };
+		FEC60A45222BFEEC0029BC80 /* String+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC60A44222BFEEC0029BC80 /* String+extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +70,10 @@
 		FEC60A35222BD3E00029BC80 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		FEC60A38222BED5E0029BC80 /* GenericTableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericTableViewData.swift; sourceTree = "<group>"; };
 		FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extensions.swift"; sourceTree = "<group>"; };
+		FEC60A3C222BFE4D0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Main.strings; sourceTree = "<group>"; };
+		FEC60A3D222BFE4E0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FEC60A41222BFE9D0029BC80 /* uk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = uk; path = uk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FEC60A44222BFEEC0029BC80 /* String+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +249,7 @@
 				FEC60A37222BD7990029BC80 /* Resources */,
 				FE94F99522285FAF00D33707 /* Assets.xcassets */,
 				FE94F99A22285FAF00D33707 /* Info.plist */,
+				FEC60A42222BFE9D0029BC80 /* Localizable.strings */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -274,6 +281,7 @@
 			children = (
 				FEC60A33222BD2AA0029BC80 /* UITableView+extensions.swift */,
 				FEC60A3A222BFB320029BC80 /* UIViewController+extensions.swift */,
+				FEC60A44222BFEEC0029BC80 /* String+extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC60A40222BFE9D0029BC80 /* Localizable.strings in Resources */,
 				FE94F99922285FAF00D33707 /* LaunchScreen.storyboard in Resources */,
 				FE94F99622285FAF00D33707 /* Assets.xcassets in Resources */,
 				FE94F99422285FAC00D33707 /* Main.storyboard in Resources */,
@@ -432,6 +441,7 @@
 				FEA41B842229695600635BD5 /* BaseViewModel.swift in Sources */,
 				FEA41B7A22295D1E00635BD5 /* CommentModel.swift in Sources */,
 				FEA41B7822295D1500635BD5 /* UserModel.swift in Sources */,
+				FEC60A45222BFEEC0029BC80 /* String+extensions.swift in Sources */,
 				FEC60A28222BC2F30029BC80 /* GenericSectionItem.swift in Sources */,
 				FEC60A31222BD1230029BC80 /* PostTableViewCell.swift in Sources */,
 				FEC60A2A222BC86F0029BC80 /* GenericTableViewCellModelProtocol.swift in Sources */,
@@ -460,6 +470,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FE94F99322285FAC00D33707 /* Base */,
+				FEC60A3C222BFE4D0029BC80 /* uk */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -468,8 +479,17 @@
 			isa = PBXVariantGroup;
 			children = (
 				FE94F99822285FAF00D33707 /* Base */,
+				FEC60A3D222BFE4E0029BC80 /* uk */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FEC60A42222BFE9D0029BC80 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FEC60A41222BFE9D0029BC80 /* uk */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -479,6 +499,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -540,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -11,7 +11,7 @@ import RxSwift
 
 class PostsViewModel: BaseViewModel {
     
-    var data = GenericTableViewData(title: "Posts")
+    var data = GenericTableViewData(title: "Posts".localized)
     
     func getPosts() {
         isLoadingSubject.onNext(true)
