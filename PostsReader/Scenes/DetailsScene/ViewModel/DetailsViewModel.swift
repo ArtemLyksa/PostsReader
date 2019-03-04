@@ -30,11 +30,14 @@ class DetailsViewModel: BaseViewModel {
         isLoadingSubject.onNext(true)
         
         Observable.zip(
-            NetworkService.shared.getUser(userId: post.userId),
-            NetworkService.shared.getComments(postId: post.id)
+            NetworkService.shared.getUser(userId: postModel.userId),
+            NetworkService.shared.getComments(postId: postModel.id)
             )
             .subscribe(onNext: { [weak self] result in
-                let models: [Describable] = [result.0] + result.1
+                
+                var models: [Describable] = result.0
+                models.append(contentsOf: result.1)
+                
                 self?.prepareForDisplay(models)
                 self?.isLoadingSubject.onNext(false)
                 },onError: { [weak self] error in
@@ -45,12 +48,12 @@ class DetailsViewModel: BaseViewModel {
     
     private func fetchLocalData() {
         // Fetch saved posts from local DB and show them
-        prepareForDisplay(dataBaseService.getPosts())
+        // TODO: Implement fetching user + comments
     }
     
     private func prepareForDisplay(_ models: [Describable]) {
         let sectionItems = models.map({ model -> GenericSectionItem in
-            return TextCellModel(identity: "2131", model: model).sectionItem
+            return TextCellModel(identity: model.attributedDescription.string, model: model).sectionItem
         })
         self.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
     }

@@ -21,9 +21,9 @@ class NetworkService {
         return performRequest(request, type: [PostModel].self)
     }
     
-    func getUser(userId: Int) -> Observable<UserModel> {
+    func getUser(userId: Int) -> Observable<[UserModel]> {
         let request = NetworkRouter.getUser(userId: userId)
-        return performRequest(request, type: UserModel.self)
+        return performRequest(request, type: [UserModel].self)
     }
     
     func getComments(postId: Int) -> Observable<[CommentModel]> {

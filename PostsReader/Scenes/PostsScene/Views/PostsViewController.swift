@@ -11,7 +11,7 @@ import UIKit
 class PostsViewController: BaseViewController {
 
     @IBOutlet weak var tableView: GenericTableView!
-    private let viewModel = PostsViewModel()
+    var viewModel: PostsViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +19,15 @@ class PostsViewController: BaseViewController {
         setupObservables()
     }
     
-    private func setupViewsOnLoad() {    
+    private func setupViewsOnLoad() {
+        guard let viewModel = viewModel else { return }
+        
         navigationItem.title = viewModel.data.title
     }
     
     private func setupObservables() {
+        guard let viewModel = viewModel else { return }
+            
         // Setup datasource
         tableView.configure(with: viewModel.data)
         viewModel.getPosts()

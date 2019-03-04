@@ -54,6 +54,7 @@ class GenericTableView: UITableView {
         rx.itemSelected
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [weak self] indexPath in
+                data[indexPath]?.wasSelected.onNext(indexPath)
                 self?.deselectRow(at: indexPath, animated: true)
             })
             .disposed(by: disposeBag)
@@ -64,27 +65,7 @@ class GenericTableView: UITableView {
                 self?.heights[indexPath] = cell.frame.size.height
             })
             .disposed(by: disposeBag)
-        
-//        data.sectionsToUpdate
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext: { [weak self] indexes, animated in
-//                if animated {
-//                    self?.reloadSections(indexes, animationStyle: .automatic)
-//                    return
-//                }
-//                //The block without animaition will make the reloading of section more stable
-//                UIView.performWithoutAnimation {
-//                    self?.reloadSections(indexes, animationStyle: .fade)
-//                }
-//            })
-//            .disposed(by: disposeBag)
     }
-    
-    
-//
-//    dataSourceObservable.animationConfiguration = AnimationConfiguration(insertAnimation: data.animation,
-//    reloadAnimation: data.animation,
-//    deleteAnimation: data.animation)
     
     private func generic(tableView table: UITableView,
                          withData dataSource: RxDataSources.TableViewSectionedDataSource<GenericSectionModel>,

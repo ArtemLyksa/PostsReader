@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 import RxDataSources
 
 struct GenericSectionItem: IdentifiableType {
@@ -14,8 +15,15 @@ struct GenericSectionItem: IdentifiableType {
     var identity: String {
         return cellModel.identity
     }
+    
+    var wasSelected = PublishSubject<IndexPath>()
+    
     var cellModel: GTVManagedCellModelProtocol
-   
+    
+    init(cellModel: GTVManagedCellModelProtocol) {
+        self.cellModel = cellModel
+    }
+    
 }
 
 extension GenericSectionItem: Equatable {

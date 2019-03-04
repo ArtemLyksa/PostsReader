@@ -42,7 +42,7 @@ enum NetworkRouter: URLRequestConvertible {
             case .getPosts:
                 return nil
             case .getUser(let userId):
-                return ["userId": userId]
+                return ["id": userId]
             case .getComments(let postId):
                 return ["postId": postId]
             }

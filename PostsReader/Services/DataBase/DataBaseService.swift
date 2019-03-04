@@ -34,4 +34,5 @@ struct DataBaseService {
     func getPosts() -> [PostModel] {
         return dataBase.getPosts()
     }
+    
 }

@@ -43,3 +43,14 @@ struct GenericBarButton {
     let title: String
     let action: () -> Void
 }
+
+
+extension GenericTableViewData {
+    
+    subscript(indexPath: IndexPath) -> GenericSectionItem? {
+        get {
+            return sectionsRelay.value[indexPath.section].items[indexPath.row]
+        }
+    }
+    
+}

@@ -12,8 +12,12 @@ import RxSwift
 class PostsViewModel: BaseViewModel {
     
     var data = GenericTableViewData(title: "Posts".localized)
+    var selectedPost: Observable<PostModel> {
+        return selectedPostSubject.asObservable()
+    }
     
     private var dataBaseService = DataBaseService(dataBase: RealmService())
+    private let selectedPostSubject = PublishSubject<PostModel>()
     
     override init() {
         super.init()
@@ -44,7 +48,15 @@ class PostsViewModel: BaseViewModel {
     
     private func prepareForDisplay(_ posts: [PostModel]) {
         let sectionItems = posts.map({ post -> GenericSectionItem in
-            return TextCellModel(identity: post.title, model: post).sectionItem
+            let sectionItem = TextCellModel(identity: post.title, model: post).sectionItem
+            
+            sectionItem.wasSelected
+                .map({ _ in return post })
+                .bind(to: selectedPostSubject)
+                .disposed(by: disposeBag)
+            
+            
+            return sectionItem
         })
         self.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
     }
