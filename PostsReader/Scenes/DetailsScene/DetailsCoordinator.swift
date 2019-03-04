@@ -20,7 +20,7 @@ class DetailsCoordinator: Coordinator {
         return popSubject.asObservable()
     }
     
-    private let popSubject = PublishSubject<Void>()
+    private lazy var popSubject = PublishSubject<Void>()
     
     private var postModel: PostModel
     

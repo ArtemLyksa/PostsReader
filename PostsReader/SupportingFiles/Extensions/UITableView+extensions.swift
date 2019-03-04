@@ -11,6 +11,7 @@ import UIKit
 extension UITableView {
     
     func getCell<T>(ofType type: T.Type) -> T {
+        
         let nibName = "\(type)"
         var cell = dequeueReusableCell(withIdentifier: nibName) as? T
         

@@ -26,10 +26,6 @@ class Container {
     
     private let realm: Realm
     
-    convenience init() throws {
-        try self.init(realm: Realm())
-    }
-    
     init(realm: Realm) {
         self.realm = realm
     }
@@ -56,17 +52,13 @@ class Container {
 }
 
 class FetchedResults<T: Persistable> {
-    let results: Results<T.ManagedObject>
     
-    var count: Int {
-        return results.count
-    }
+    let results: Results<T.ManagedObject>
+
     init(results: Results<T.ManagedObject>) {
         self.results = results
     }
-    func value(at index: Int) -> T {
-        return T(managedObject: results[index])
-    }
+
     func values() -> [T] {
         return results.map({ T(managedObject: $0) })
     }

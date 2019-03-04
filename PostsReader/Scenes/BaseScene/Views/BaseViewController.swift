@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class BaseViewController: UIViewController, Storyboarded {
+class BaseViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
@@ -23,6 +23,8 @@ class BaseViewController: UIViewController, Storyboarded {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // Keep track of moving back
         if isMovingFromParent {
             popSubject.onNext(())
         }
@@ -54,4 +56,8 @@ class BaseViewController: UIViewController, Storyboarded {
     @objc private func rightBarButtonAction() {
         rightGenericBarButton?.action()
     }
+}
+
+extension BaseViewController: Storyboarded {
+    
 }

@@ -46,18 +46,17 @@ class PostsViewModel: BaseViewModel {
         prepareForDisplay(dataBaseService.getPosts())
     }
     
-    private func prepareForDisplay(_ posts: [PostModel]) {
-        let sectionItems = posts.map({ post -> GenericSectionItem in
-            let sectionItem = TextCellModel(identity: post.title, model: post).sectionItem
+    private func prepareForDisplay(_ models: [Describable]) {
+        let sectionItems = models.map({ model -> GenericSectionItem in
+            let sectionItem = TextCellModel(identity: model.attributedDescription.string, model: model).sectionItem
             
             sectionItem.wasSelected
-                .map({ _ in return post })
+                .map({ _ in return model as! PostModel })
                 .bind(to: selectedPostSubject)
                 .disposed(by: disposeBag)
             
-            
             return sectionItem
         })
-        data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
+        data.set(sections: [GenericSectionModel(items: sectionItems, identity: "Posts")])
     }
 }

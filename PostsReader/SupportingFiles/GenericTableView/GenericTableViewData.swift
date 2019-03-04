@@ -23,7 +23,7 @@ class GenericTableViewData {
     }
     
     private let sectionsRelay: BehaviorRelay<[GenericSectionModel]>
-    private let rightBarButtonRelay: BehaviorRelay<GenericBarButton?> = BehaviorRelay(value: nil)
+    private lazy var rightBarButtonRelay: BehaviorRelay<GenericBarButton?> = BehaviorRelay(value: nil)
     
     init(title: String) {
         self.title = title

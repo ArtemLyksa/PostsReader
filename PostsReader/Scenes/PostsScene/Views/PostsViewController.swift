@@ -21,7 +21,6 @@ class PostsViewController: BaseViewController {
     
     private func setupViewsOnLoad() {
         guard let viewModel = viewModel else { return }
-        
         navigationItem.title = viewModel.data.title
     }
     

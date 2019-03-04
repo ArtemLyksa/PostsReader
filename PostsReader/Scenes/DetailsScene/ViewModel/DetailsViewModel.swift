@@ -15,7 +15,7 @@ class DetailsViewModel: BaseViewModel {
     var data = GenericTableViewData(title: "Details".localized)
     
     private let postModel: PostModel!
-    private var dataBaseService = DataBaseService(dataBase: RealmService())
+    private lazy var dataBaseService = DataBaseService(dataBase: RealmService())
 
     init(postModel: PostModel) {
         self.postModel = postModel
@@ -29,18 +29,19 @@ class DetailsViewModel: BaseViewModel {
     func getDetails() {
         isLoadingSubject.onNext(true)
         
-        Observable.zip(
-            NetworkService.shared.getUser(userId: postModel.userId),
-            NetworkService.shared.getComments(postId: postModel.id)
-            )
+        Observable.zip(NetworkService.shared.getUser(userId: postModel.userId),
+                       NetworkService.shared.getComments(postId: postModel.id))
             .subscribe(onNext: { [weak self] result in
-                self?.dataBaseService.save(result.0)
-                self?.dataBaseService.save(result.1)
-                var models: [Describable] = result.0
-                models.append(contentsOf: result.1)
+                
+                self?.dataBaseService.save(result.0) //User
+                self?.dataBaseService.save(result.1) //Comments
+                
+                var models: [Describable] = result.0 //Create array with users
+                models.append(contentsOf: result.1) //Append comments
                 
                 self?.prepareForDisplay(models)
                 self?.isLoadingSubject.onNext(false)
+                
                 },onError: { [weak self] error in
                     self?.errorSubject.onNext(error)
             })
@@ -48,8 +49,7 @@ class DetailsViewModel: BaseViewModel {
     }
     
     private func fetchLocalData() {
-        // Fetch saved posts from local DB and show them
-        // TODO: Implement fetching user + comments
+        // Fetch saved users and comments from local DB and show them
         let user = dataBaseService.getUser(with: postModel.userId) as [Describable]
         let comments = dataBaseService.getComments(with: postModel.id) as [Describable]
                 
@@ -60,6 +60,6 @@ class DetailsViewModel: BaseViewModel {
         let sectionItems = models.map({ model -> GenericSectionItem in
             return TextCellModel(identity: model.attributedDescription.string, model: model).sectionItem
         })
-        self.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
+        data.set(sections: [GenericSectionModel(items: sectionItems, identity: "Details")])
     }
 }

@@ -11,7 +11,7 @@ import RxSwift
 
 class DetailsViewController: BaseViewController {
     
-     @IBOutlet weak var tableView: GenericTableView!
+    @IBOutlet weak var tableView: GenericTableView!
     
     var viewModel: DetailsViewModel?
     
@@ -23,7 +23,6 @@ class DetailsViewController: BaseViewController {
     
     private func setupViewsOnLoad() {
         guard let viewModel = viewModel else { return }
-        
         navigationItem.title = viewModel.data.title
     }
     

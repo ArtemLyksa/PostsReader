@@ -54,6 +54,5 @@ class NetworkService {
             throw GenericError.generic(error)
         }
     }
-    
 }
 
