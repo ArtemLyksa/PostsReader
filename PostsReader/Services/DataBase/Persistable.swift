@@ -68,7 +68,7 @@ class FetchedResults<T: Persistable> {
         return T(managedObject: results[index])
     }
     func values() -> [T] {
-        return results.toArray().map({ T(managedObject: $0) })
+        return results.map({ T(managedObject: $0) })
     }
 }
 
