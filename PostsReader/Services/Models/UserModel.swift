@@ -13,29 +13,8 @@ struct UserModel: Decodable {
     var name: String
     var username: String
     var email: String
-    var address: UserAddress?
     var phone: String
     var website: String
-    var company: UserCompany?
-}
-
-struct UserAddress: Decodable {
-    var street: String
-    var suite: String
-    var city: String
-    var zipcode: String
-    var geo: AddressGeocode
-}
-
-struct AddressGeocode: Decodable {
-    var lat: String
-    var lng: String
-}
-
-struct UserCompany: Decodable {
-    var name: String
-    var catchPhrase: String
-    var bs: String
 }
 
 extension UserModel: Describable {

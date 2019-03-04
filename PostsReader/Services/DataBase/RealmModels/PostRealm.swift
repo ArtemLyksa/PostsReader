@@ -21,29 +21,32 @@ class PostRealm: Object {
         return "id"
     }
     
-    convenience init(with post: PostModel) {
+    convenience init(with model: PostModel) {
         self.init()
-        self.userId = post.userId
-        self.id = post.id
-        self.title = post.title
-        self.body = post.body
+        self.userId = model.userId
+        self.id = model.id
+        self.title = model.title
+        self.body = model.body
     }
     
-    func decode() -> PostModel {
-        return PostModel(userId: userId, id: id, title: title, body: body)
-    }
 }
 
-extension Array where Element == PostRealm {
+extension PostModel: Persistable {
     
-    func decodeItems() -> [PostModel] {
-        return self.map({ $0.decode() })
+    init(managedObject: PostRealm) {
+        self.init(userId: managedObject.userId,
+                  id: managedObject.id,
+                  title: managedObject.title,
+                  body: managedObject.body)
     }
-}
-
-extension Array where Element == PostModel {
     
-    func encodeItems() -> [PostRealm] {
-        return self.map({ PostRealm(with: $0) })
+    func managedObject() -> PostRealm {
+        return PostRealm(with: self)
+    }
+    
+    struct Query: QueryType {
+        var predicate: NSPredicate? {
+            return nil
+        }
     }
 }

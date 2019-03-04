@@ -11,7 +11,7 @@ import RxRealm
 import RealmSwift
 
 struct RealmService: DataBaseProtocol {
-    
+
     static let currentSchemaVersion: UInt64 = 0
     
     init() {
@@ -27,32 +27,28 @@ struct RealmService: DataBaseProtocol {
         Realm.Configuration.defaultConfiguration = config
     }
     
-    func savePosts(_ posts: [PostModel]) {
-        let realm = Realm.safeInit()
-        realm?.safeWrite {
-            realm?.add(posts.encodeItems(), update: true)
-        }
-    }
-    
     func getPosts() -> [PostModel] {
-        let realm = Realm.safeInit()
-        return realm?.objects(PostRealm.self).toArray().decodeItems() ?? []
+        return get(type: PostModel.self)
     }
     
-    func saveUser() {
-        
+    func getUser(with id: Int) -> [UserModel] {
+        return get(type: UserModel.self, query: UserModel.Query.userId(id))
     }
     
-    func getUser() {
-        
+    func getComments(with postId: Int) -> [CommentModel] {
+        return get(type: CommentModel.self, query: CommentModel.Query.postId(postId))
     }
     
-    func saveComments() {
-        
+    func save<T: Persistable>(_ models: [T]) {
+        guard let realm = Realm.safeInit() else { return }
+        let container = Container(realm: realm)
+        try! container.add(models, update: true)
     }
     
-    func getComments() {
-        
+    private func get<T: Persistable>(type: T.Type, query: T.Query? = nil) -> [T] {
+        guard let realm = Realm.safeInit() else { return [] }
+        let container = Container(realm: realm)
+        return container.values(type, matching: query)
     }
     
 }

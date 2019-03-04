@@ -13,6 +13,10 @@ struct PostModel: Decodable {
     var id: Int
     var title: String
     var body: String
+    
+    static func primaryKey() -> String? {
+        return "id"
+    }
 }
 
 extension PostModel: Describable {

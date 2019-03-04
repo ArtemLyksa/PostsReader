@@ -18,6 +18,10 @@ class PostsCoordinator: Coordinator {
         self.postModel = postModel
     }
     
+    deinit {
+        print("\(String(describing: self)) was deinited")
+    }
+    
     func start() {
         let viewController = DetailsViewController.instantiate()
         viewController.viewModel = DetailsViewModel(postModel: postModel)

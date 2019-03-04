@@ -34,7 +34,8 @@ class DetailsViewModel: BaseViewModel {
             NetworkService.shared.getComments(postId: postModel.id)
             )
             .subscribe(onNext: { [weak self] result in
-                
+                self?.dataBaseService.save(result.0)
+                self?.dataBaseService.save(result.1)
                 var models: [Describable] = result.0
                 models.append(contentsOf: result.1)
                 
@@ -49,6 +50,10 @@ class DetailsViewModel: BaseViewModel {
     private func fetchLocalData() {
         // Fetch saved posts from local DB and show them
         // TODO: Implement fetching user + comments
+        let user = dataBaseService.getUser(with: postModel.userId) as [Describable]
+        let comments = dataBaseService.getComments(with: postModel.id) as [Describable]
+                
+        prepareForDisplay(user + comments)
     }
     
     private func prepareForDisplay(_ models: [Describable]) {

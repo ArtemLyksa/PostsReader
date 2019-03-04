@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		36BB2E5B86CDBCEF1240BB86 /* Pods_PostsReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDFA3E6FD7F31210BE1C170C /* Pods_PostsReader.framework */; };
+		FE0F633D222DA93A003DD1D8 /* UserRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0F633C222DA93A003DD1D8 /* UserRealm.swift */; };
+		FE0F633F222DA947003DD1D8 /* CommentRealm.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0F633E222DA947003DD1D8 /* CommentRealm.swift */; };
+		FE0F6341222DAA78003DD1D8 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0F6340222DAA78003DD1D8 /* Persistable.swift */; };
 		FE94F98F22285FAC00D33707 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE94F98E22285FAC00D33707 /* AppDelegate.swift */; };
 		FE94F99422285FAC00D33707 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE94F99222285FAC00D33707 /* Main.storyboard */; };
 		FE94F99622285FAF00D33707 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE94F99522285FAF00D33707 /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 		1B014BEED1F0A8AF421FE076 /* Pods-PostsReader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsReader.debug.xcconfig"; path = "Target Support Files/Pods-PostsReader/Pods-PostsReader.debug.xcconfig"; sourceTree = "<group>"; };
 		DE5BAB85336919133C47FB43 /* Pods-PostsReader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PostsReader.release.xcconfig"; path = "Target Support Files/Pods-PostsReader/Pods-PostsReader.release.xcconfig"; sourceTree = "<group>"; };
 		EDFA3E6FD7F31210BE1C170C /* Pods_PostsReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PostsReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0F633C222DA93A003DD1D8 /* UserRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealm.swift; sourceTree = "<group>"; };
+		FE0F633E222DA947003DD1D8 /* CommentRealm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentRealm.swift; sourceTree = "<group>"; };
+		FE0F6340222DAA78003DD1D8 /* Persistable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
 		FE94F98B22285FAC00D33707 /* PostsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PostsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE94F98E22285FAC00D33707 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FE94F99322285FAC00D33707 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -180,6 +186,7 @@
 		FEA41B7022295C3C00635BD5 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
+				FE0F6340222DAA78003DD1D8 /* Persistable.swift */,
 				FEC60A4F222C15520029BC80 /* RealmModels */,
 				FEA41B6B2229403C00635BD5 /* DataBaseService.swift */,
 				FEA41B6D2229404F00635BD5 /* RealmService.swift */,
@@ -313,6 +320,8 @@
 			isa = PBXGroup;
 			children = (
 				FEC60A50222C15660029BC80 /* PostRealm.swift */,
+				FE0F633C222DA93A003DD1D8 /* UserRealm.swift */,
+				FE0F633E222DA947003DD1D8 /* CommentRealm.swift */,
 			);
 			path = RealmModels;
 			sourceTree = "<group>";
@@ -503,10 +512,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEA41B7322295C7F00635BD5 /* NetworkService.swift in Sources */,
+				FE0F633F222DA947003DD1D8 /* CommentRealm.swift in Sources */,
 				FEA41B842229695600635BD5 /* BaseViewModel.swift in Sources */,
 				FEC60A58222C23F30029BC80 /* DetailsViewController.swift in Sources */,
 				FEA41B7A22295D1E00635BD5 /* CommentModel.swift in Sources */,
 				FEA41B7822295D1500635BD5 /* UserModel.swift in Sources */,
+				FE0F633D222DA93A003DD1D8 /* UserRealm.swift in Sources */,
 				FEC60A45222BFEEC0029BC80 /* String+extensions.swift in Sources */,
 				FEC60A4E222C11730029BC80 /* BaseViewController+Rx.swift in Sources */,
 				FEC60A28222BC2F30029BC80 /* GenericSectionItem.swift in Sources */,
@@ -530,6 +541,7 @@
 				FEFEFFCA222D722800F03B04 /* PostsCoordinator.swift in Sources */,
 				FEFEFFC6222D6DD400F03B04 /* Coordinator.swift in Sources */,
 				FEFEFFC8222D6E4300F03B04 /* MainCoordinator.swift in Sources */,
+				FE0F6341222DAA78003DD1D8 /* Persistable.swift in Sources */,
 				FEC60A6C222C27C10029BC80 /* NSAttributedString+Extensions.swift in Sources */,
 				FE94F98F22285FAC00D33707 /* AppDelegate.swift in Sources */,
 				FEA41B6C2229403C00635BD5 /* DataBaseService.swift in Sources */,

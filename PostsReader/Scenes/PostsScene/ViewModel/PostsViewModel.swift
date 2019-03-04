@@ -32,7 +32,7 @@ class PostsViewModel: BaseViewModel {
         
         NetworkService.shared.getPosts()
             .subscribe(onNext: { [weak self] posts in
-                self?.dataBaseService.savePosts(posts)
+                self?.dataBaseService.save(posts)
                 self?.prepareForDisplay(posts)
                 self?.isLoadingSubject.onNext(false)
                 },onError: { [weak self] error in

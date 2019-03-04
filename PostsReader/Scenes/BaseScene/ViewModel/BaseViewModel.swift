@@ -26,4 +26,7 @@ class BaseViewModel {
     }
     var errorSubject = BehaviorSubject<Error?>(value: nil)
     
+    deinit {
+        print("\(String(describing: self)) was deinited")
+    }
 }

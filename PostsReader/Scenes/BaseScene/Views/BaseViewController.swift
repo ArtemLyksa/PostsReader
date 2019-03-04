@@ -16,6 +16,10 @@ class BaseViewController: UIViewController, Storyboarded {
     
     private var rightGenericBarButton: GenericBarButton?
     
+    deinit {
+        print("\(String(describing: self)) was deinited")
+    }
+    
     func setupBaseObservables(baseViewModel: BaseViewModel) {
         
         setupSpinner(drivenBy: baseViewModel.isLoadingSubject)

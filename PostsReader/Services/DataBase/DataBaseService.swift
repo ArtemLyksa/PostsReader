@@ -10,13 +10,13 @@ import Foundation
 
 protocol DataBaseProtocol {
     
-    func savePosts(_ posts: [PostModel])
     func getPosts() -> [PostModel]
-    func saveUser()
-    func getUser()
-    func saveComments()
-    func getComments()
     
+    func getUser(with id: Int) -> [UserModel]
+    
+    func getComments(with postId: Int) -> [CommentModel]
+    
+    func save<T: Persistable>(_ models: [T])
 }
 
 struct DataBaseService {
@@ -27,12 +27,28 @@ struct DataBaseService {
         self.dataBase = dataBase
     }
     
-    func savePosts(_ posts: [PostModel]) {
-        dataBase.savePosts(posts)
-    }
+    // MARK: Posts
     
     func getPosts() -> [PostModel] {
         return dataBase.getPosts()
+    }
+    
+    // MARK: Users
+    
+    func getUser(with id: Int) -> [UserModel] {
+        return dataBase.getUser(with: id)
+    }
+    
+    // MARK: Comments
+    
+    func getComments(with postId: Int) -> [CommentModel] {
+        return dataBase.getComments(with: postId)
+    }
+    
+    // MARK: Generic
+    
+    func save<T: Persistable>(_ models: [T]) {
+        dataBase.save(models)
     }
     
 }
