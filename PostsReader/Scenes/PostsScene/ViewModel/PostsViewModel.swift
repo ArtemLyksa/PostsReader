@@ -16,8 +16,8 @@ class PostsViewModel: BaseViewModel {
         return selectedPostSubject.asObservable()
     }
     
-    private var dataBaseService = DataBaseService(dataBase: RealmService())
-    private let selectedPostSubject = PublishSubject<PostModel>()
+    lazy var dataBaseService = DataBaseService(dataBase: RealmService())
+    lazy var selectedPostSubject = PublishSubject<PostModel>()
     
     override init() {
         super.init()
@@ -58,6 +58,6 @@ class PostsViewModel: BaseViewModel {
             
             return sectionItem
         })
-        self.data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
+        data.set(sections: [GenericSectionModel(items: sectionItems, identity: "test")])
     }
 }

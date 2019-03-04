@@ -15,7 +15,7 @@ class GenericTableView: UITableView {
 
     var dataSourceObservable: RxTableViewSectionedAnimatedDataSource<GenericSectionModel>!
     
-    var heights = [IndexPath: CGFloat]()
+    var heights: [IndexPath: CGFloat] = [:]
     
     private let disposeBag = DisposeBag()
     

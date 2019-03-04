@@ -11,10 +11,10 @@ import RxSwift
 
 class DetailsCoordinator: Coordinator {
     
-    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
     
-    let disposeBag = DisposeBag()
+    lazy var childCoordinators: [Coordinator] = []
+    lazy var disposeBag = DisposeBag()
     
     var pop: Observable<Void> {
         return popSubject.asObservable()

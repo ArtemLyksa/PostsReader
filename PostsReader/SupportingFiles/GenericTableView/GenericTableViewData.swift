@@ -48,9 +48,7 @@ struct GenericBarButton {
 extension GenericTableViewData {
     
     subscript(indexPath: IndexPath) -> GenericSectionItem? {
-        get {
-            return sectionsRelay.value[indexPath.section].items[indexPath.row]
-        }
+        return sectionsRelay.value[indexPath.section].items[indexPath.row]
     }
     
 }

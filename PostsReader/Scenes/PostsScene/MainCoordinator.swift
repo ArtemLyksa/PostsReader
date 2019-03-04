@@ -13,15 +13,15 @@ class MainCoordinator: Coordinator {
     
     let window: UIWindow?
     var navigationController: UINavigationController
-    var childCoordinators = [Coordinator]()
     
-    let disposeBag = DisposeBag()
+    lazy var childCoordinators: [Coordinator] = []
+    lazy var disposeBag = DisposeBag()
     
     var pop: Observable<Void> {
         return popSubject.asObservable()
     }
     
-    private let popSubject = PublishSubject<Void>()
+    private lazy var popSubject = PublishSubject<Void>()
     
     init(window: UIWindow?, navigationController: UINavigationController) {
         self.window = window

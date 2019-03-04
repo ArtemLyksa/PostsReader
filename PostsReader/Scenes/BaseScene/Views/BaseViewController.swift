@@ -18,7 +18,7 @@ class BaseViewController: UIViewController, Storyboarded {
         return popSubject.asObservable()
     }
     
-    private let popSubject = PublishSubject<Void>()
+    private lazy var popSubject = PublishSubject<Void>()
     private var rightGenericBarButton: GenericBarButton?
     
     override func viewWillDisappear(_ animated: Bool) {
