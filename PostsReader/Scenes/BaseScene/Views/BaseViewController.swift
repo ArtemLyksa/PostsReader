@@ -14,10 +14,18 @@ class BaseViewController: UIViewController, Storyboarded {
     
     let disposeBag = DisposeBag()
     
+    var pop: Observable<Void> {
+        return popSubject.asObservable()
+    }
+    
+    private let popSubject = PublishSubject<Void>()
     private var rightGenericBarButton: GenericBarButton?
     
-    deinit {
-        print("\(String(describing: self)) was deinited")
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if isMovingFromParent {
+            popSubject.onNext(())
+        }
     }
     
     func setupBaseObservables(baseViewModel: BaseViewModel) {

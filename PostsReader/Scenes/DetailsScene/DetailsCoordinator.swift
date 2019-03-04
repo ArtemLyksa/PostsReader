@@ -1,5 +1,5 @@
 //
-//  PostsCoordinator.swift
+//  DetailsCoordinator.swift
 //  PostsReader
 //
 //  Created by Artem Lyksa on 3/4/19.
@@ -7,10 +7,21 @@
 //
 
 import UIKit
+import RxSwift
 
-class PostsCoordinator: Coordinator {
+class DetailsCoordinator: Coordinator {
     
+    var childCoordinators = [Coordinator]()
     var navigationController: UINavigationController
+    
+    let disposeBag = DisposeBag()
+    
+    var pop: Observable<Void> {
+        return popSubject.asObservable()
+    }
+    
+    private let popSubject = PublishSubject<Void>()
+    
     private var postModel: PostModel
     
     init(navigationController: UINavigationController, postModel: PostModel) {
@@ -18,13 +29,14 @@ class PostsCoordinator: Coordinator {
         self.postModel = postModel
     }
     
-    deinit {
-        print("\(String(describing: self)) was deinited")
-    }
-    
     func start() {
         let viewController = DetailsViewController.instantiate()
         viewController.viewModel = DetailsViewModel(postModel: postModel)
+        
+        viewController.pop
+            .bind(to: popSubject)
+            .disposed(by: disposeBag)
+        
         navigationController.pushViewController(viewController, animated: true)
     }
     

@@ -51,7 +51,7 @@ class NetworkService {
         } catch (let error ) {
             let nserror = error as NSError
             print("Error occurred when trying to parse \(type): \n ***\(nserror.userInfo)***")
-            throw GenericError.cannotParseData
+            throw GenericError.generic(error)
         }
     }
     

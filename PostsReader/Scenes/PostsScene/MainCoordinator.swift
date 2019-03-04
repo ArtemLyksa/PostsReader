@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import RxSwift
 
 class MainCoordinator: Coordinator {
     
     let window: UIWindow?
     var navigationController: UINavigationController
+    var childCoordinators = [Coordinator]()
+    
+    let disposeBag = DisposeBag()
+    
+    var pop: Observable<Void> {
+        return popSubject.asObservable()
+    }
+    
+    private let popSubject = PublishSubject<Void>()
     
     init(window: UIWindow?, navigationController: UINavigationController) {
         self.window = window
@@ -41,8 +51,13 @@ class MainCoordinator: Coordinator {
 extension MainCoordinator {
     
     func postSelected(post: PostModel) {
-        let postsCoordinator = PostsCoordinator(navigationController: navigationController, postModel: post)
-        postsCoordinator.start()
+        let detailsCoordinator = DetailsCoordinator(navigationController: navigationController, postModel: post)
+        
+        childCoordinators.append(detailsCoordinator)
+        detailsCoordinator.start()
+        
+        detailsCoordinator.pop.subscribe(onNext: { [weak self] in
+            self?.childCoordinators.removeLast()
+        }).disposed(by: detailsCoordinator.disposeBag)
     }
-    
 }

@@ -7,8 +7,17 @@
 //
 
 import UIKit
+import RxSwift
 
 protocol Coordinator {
+    
+    /// Using to keep track of navigation back
+    var pop: Observable<Void> { get }
+    var disposeBag: DisposeBag { get }
+    
+    /// Using to keep references to the child coordinators
+    var childCoordinators: [Coordinator] { get }
+    
     var navigationController: UINavigationController { get }
     func start()
 }
